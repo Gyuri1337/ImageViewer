@@ -6,7 +6,7 @@ QImage __image;
 
 LiveImageProvider::LiveImageProvider() : QQuickImageProvider(QQuickImageProvider::Image)
 {
-    this->no_image = QImage(":/images/no_image.png");
+    this->no_image.load(":/no_image.jpg");
     this->blockSignals(false);
 }
 

@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import QtQuick.VirtualKeyboard 2.4
+//import QtQuick.VirtualKeyboard 2.4
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
 import QtQuick.Extras 1.4
@@ -184,20 +184,20 @@ Window {
 
                 }
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/61007.png"
+                    icon.source: "./rotateleft.png"
                     onClicked: {myTimer.running = false
                         sourceList.rotate(-90)
                     }
                 }
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/resize.png"
+                    icon.source: "./resize.png"
                     onClicked:{
                         myTimer.running = false
                         reFillActualImage()
                     }
                 }
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/61077.png"
+                    icon.source: "./rotateright.png"
                     onClicked: {
                         myTimer.running = false
                         sourceList.rotate(90)
@@ -216,17 +216,19 @@ Window {
             RowLayout{
 
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/play.png"
-                    onClicked: {myTimer.running = true
+                    icon.source: "./play.png"
+                    onClicked: {    myTimer.running = true
+                                    sourceList.next()
+                                    sourceList.imageAdded()
                     }
 
                 }
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/pause.png"
+                    icon.source: "./pause.png"
                     onClicked: myTimer.running = false
                 }
                 ToolButton{
-                    icon.source: "file:///C:/Users/Workswell 1/Documents/ImageViewer/stop.png"
+                    icon.source: "./stop.png"
                     onClicked: {
                         myTimer.running = false
                         sourceList.stop()
@@ -300,7 +302,6 @@ Window {
                         anchors.fill:   parent
                         onPressed:      {
                             parent.color = "red"
-                            console.log("PRESSED")
                             if(mouse.button === Qt.RightButton)
                             {
                                 option_menu.popup()
@@ -309,11 +310,8 @@ Window {
                         onReleased:     parent.color = "black"
                         onClicked:      {
                             if(mouse.button === Qt.LeftButton){
-                            console.log("image clicked on " + index)
                             myTimer.running = false;
                             sourceList.changeImage(index)
-
-                            console.log(mouse.button)
                            }
                         }
 
@@ -333,7 +331,6 @@ Window {
                     height:         parent.height
                     text:           "X"
                     onClicked:      {
-                        console.log("deletimage clicked on " + index)
                         myTimer.running = false;
                         sourceList.deleteImage(index)
 
@@ -398,25 +395,21 @@ Window {
             onImageAdded:{
                 if(sourceList.actualFiles.length ===0)
                 {
-                    console.log("empty")
                     myTimer.running = false;
                 }
                 else
                 {
                 actualImage.source = "image://live/image" + Math.random()
-                console.log("imageAdded called");
                 button.visible = false;
                 reFillActualImage();
                 imageArea.visible = true;
                 }
             }
             onImageDeleted:{
-                console.log("onDeleted called")
                 button.visible = true;
                 imageArea.visible = false;
             }
             onAnimationEnded:{
-                console.log("endeddddd")
                 myTimer.running = false
             }
         }

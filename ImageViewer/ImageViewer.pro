@@ -37,4 +37,6 @@ HEADERS += \
     myfilesource.h \
     myfilesourcelist.h
 
-DISTFILES +=
+DISTFILES += \
+    61007.png \
+    no_image.jpg

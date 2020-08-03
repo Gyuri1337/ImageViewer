@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>pause.png</file>
+        <file>play.png</file>
+        <file>resize.png</file>
+        <file>rotateleft.png</file>
+        <file>rotateright.png</file>
+        <file>stop.png</file>
+        <file>no_image.jpg</file>
     </qresource>
 </RCC>
