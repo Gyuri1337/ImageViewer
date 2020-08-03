@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>rotateleft.png</file>
+        <file>Connections.qml</file>
+        <file>Filedialog.qml</file>
+    </qresource>
+</RCC>
