@@ -8,5 +8,8 @@
         <file>rotateright.png</file>
         <file>stop.png</file>
         <file>no_image.jpg</file>
+        <file>ImageArea.qml</file>
+        <file>BarArea.qml</file>
+        <file>ListArea.qml</file>
     </qresource>
 </RCC>

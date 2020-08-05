@@ -5,7 +5,9 @@
 #include <QImage>
 #include <QQuickImageProvider>
 
-extern QImage __image;
+#include"myfilesource.h"
+
+extern MyFileSource*__image;
 
 class LiveImageProvider : public QObject, public QQuickImageProvider
 {

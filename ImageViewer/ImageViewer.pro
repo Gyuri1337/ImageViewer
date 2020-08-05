@@ -40,3 +40,11 @@ HEADERS += \
 DISTFILES += \
     61007.png \
     no_image.jpg
+
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/exiv2/lib/ -lexiv2
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/exiv2/lib/ -lexiv2
+
+INCLUDEPATH += $$PWD/exiv2/include
+DEPENDPATH += $$PWD/exiv2/include

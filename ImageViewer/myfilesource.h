@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QImage>
+#include <QUrl>
 
 class MyFileSource: public QObject
 {
@@ -14,17 +15,19 @@ class MyFileSource: public QObject
 public:
     // Contructors
     MyFileSource(QObject* parent = nullptr);
-    MyFileSource(QString _value, QImage _image, QObject* parent = nullptr);
+    MyFileSource(QString _dir, QString _fileName, QImage _imageValue, QObject *parent = nullptr);
 
     // Public methods
+    QString getDir();
+    QImage* getImage();
     QString getFileName();
-    QImage getImage();
-
+    bool Equals(MyFileSource tmp);
 
 private:
     //Private variables
-    QString _fileName;
-    QImage _imageDir;
+    QString fileName;
+    QString dir;
+    QImage imageDir;
 };
 
 #endif // MYFILESOURCE_H

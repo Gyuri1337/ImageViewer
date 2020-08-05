@@ -1,8 +1,8 @@
 #include "LiveImageProvider.h"
 #include <QDebug>
-
+#include "myfilesource.h"
 // external variables
-QImage __image;
+MyFileSource* __image;
 
 LiveImageProvider::LiveImageProvider() : QQuickImageProvider(QQuickImageProvider::Image)
 {
@@ -16,10 +16,15 @@ LiveImageProvider::~LiveImageProvider(){
 
 QImage LiveImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
 {
-    QImage result  = __image;
 
-    if(result.isNull()) {
+    QImage result;
+    if(__image == nullptr) {
+        if(no_image.isNull())
+            return result;
         result = this->no_image;
+    }
+    else {
+        result  = *__image->getImage();
     }
 
     if(size) {

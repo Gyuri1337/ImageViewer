@@ -1,0 +1,11 @@
+prefix=C:/Users/rmills/gnu/github/exiv2/buildserver/dist${profile}
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: exiv2
+Description: Exif and IPTC metadata library and tools
+Version: 0.27.2
+URL: http://exiv2.dyndns.org
+Libs: -L${libdir} -lexiv2
+Cflags: -I${includedir}
